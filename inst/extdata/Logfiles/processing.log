@@ -1,0 +1,36 @@
+TRACE [2018-09-20 15:40:15] Logging to /Users/chris.knox/nzme/SchoolRollNZ/inst/extdata/Logfiles/processing.log
+TRACE [2018-09-20 15:40:15] Processing data
+TRACE [2018-09-20 15:40:15] Reading yaml configuration
+TRACE [2018-09-20 15:40:15] Found /Users/chris.knox/nzme/SchoolRollNZ/data-raw/tidy_rolls.Rmd
+TRACE [2018-09-20 15:40:15] Processing 1 of 1: /Users/chris.knox/nzme/SchoolRollNZ/data-raw/tidy_rolls.Rmd
+
+TRACE [2018-09-20 15:40:19] 3 data set(s) created by tidy_rolls.Rmd
+TRACE [2018-09-20 15:40:20] NEWS.md file not found, creating!
+TRACE [2018-09-20 15:40:33] Saving to data
+TRACE [2018-09-20 15:40:34] Copied documentation to /Users/chris.knox/nzme/SchoolRollNZ/R/SchoolRollNZ.R
+TRACE [2018-09-20 15:40:34] Done
+TRACE [2018-09-20 15:40:34] DataPackageR succeeded
+TRACE [2018-09-20 15:40:34] Building documentation
+TRACE [2018-09-20 15:40:35] Building package
+TRACE [2018-09-20 16:05:21] Logging to /Users/chris.knox/nzme/SchoolRollNZ/inst/extdata/Logfiles/processing.log
+TRACE [2018-09-20 16:05:21] Processing data
+TRACE [2018-09-20 16:05:21] Reading yaml configuration
+TRACE [2018-09-20 16:05:21] Found /Users/chris.knox/nzme/SchoolRollNZ/data-raw/tidy_rolls.Rmd
+TRACE [2018-09-20 16:05:21] Processing 1 of 1: /Users/chris.knox/nzme/SchoolRollNZ/data-raw/tidy_rolls.Rmd
+
+TRACE [2018-09-20 16:05:24] 3 data set(s) created by tidy_rolls.Rmd
+WARN [2018-09-20 16:05:24] school_deciles has changed.
+WARN [2018-09-20 16:05:24] school_details has changed.
+WARN [2018-09-20 16:05:24] school_deciles has changed.
+WARN [2018-09-20 16:05:24] school_details has changed.
+WARN [2018-09-20 16:05:24] school_deciles has changed.
+WARN [2018-09-20 16:05:24] school_details has changed.
+TRACE [2018-09-20 16:05:24] NEWS.md file found, updating!
+TRACE [2018-09-20 16:05:28] NEWS.md file found, updating!
+TRACE [2018-09-20 16:05:28] Data has been updated and DataVersion string incremented automatically to 0.1.1
+TRACE [2018-09-20 16:05:28] Saving to data
+TRACE [2018-09-20 16:05:29] Copied documentation to /Users/chris.knox/nzme/SchoolRollNZ/R/SchoolRollNZ.R
+TRACE [2018-09-20 16:05:29] Done
+TRACE [2018-09-20 16:05:29] DataPackageR succeeded
+TRACE [2018-09-20 16:05:29] Building documentation
+TRACE [2018-09-20 16:05:30] Building package

@@ -1,0 +1,10 @@
+configuration:
+  files:
+    tidy_rolls.Rmd:
+      enabled: yes
+  objects:
+  - school_demographics
+  - school_deciles
+  - school_details
+  render_root:
+    tmp: '148554'

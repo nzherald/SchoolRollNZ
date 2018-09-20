@@ -1,0 +1,128 @@
+---
+title: Process school rolls
+author: Chris Knox
+---
+
+Load each year
+
+```{r}
+d00 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2000-2008b.xlsx'),
+                          sheet=1, skip=3, n_max=2729, na='.') %>% mutate(Year=2000)
+d01 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2000-2008b.xlsx'),
+                          sheet=2, skip=3, n_max=2725, na='.') %>% mutate(Year=2001)
+d02 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2000-2008b.xlsx'),
+                          sheet=3, skip=3, n_max=2706, na='.') %>% mutate(Year=2002)
+d03 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2000-2008b.xlsx'),
+                          sheet=4, skip=3, n_max=2707, na='.') %>% mutate(Year=2003)
+d04 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2000-2008b.xlsx'),
+                          sheet=5, skip=3, n_max=2671, na='.') %>% mutate(Year=2004)
+d05 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2000-2008b.xlsx'),
+                          sheet=6, skip=3, n_max=2606, na='.') %>% mutate(Year=2005)
+d06 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2000-2008b.xlsx'),
+                          sheet=7, skip=3, n_max=2597, na='.') %>% mutate(Year=2006)
+d07 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2000-2008b.xlsx'),
+                          sheet=8, skip=3, n_max=2590, na='.') %>% mutate(Year=2007)
+d08 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2000-2008b.xlsx'),
+                          sheet=9, skip=3, n_max=2581, na='.') %>% mutate(Year=2008)
+
+d09 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2009-2017b.xlsx'),
+                          sheet=1, skip=3, n_max=2580, na='.') %>% mutate(Year=2009)
+d10 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2009-2017b.xlsx'),
+                          sheet=2, skip=3, n_max=2577, na='.') %>% mutate(Year=2010)
+d11 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2009-2017b.xlsx'),
+                          sheet=3, skip=3, n_max=2568, na='.') %>% mutate(Year=2011)
+d12 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2009-2017b.xlsx'),
+                          sheet=4, skip=3, n_max=2558, na='.') %>% mutate(Year=2012)
+d13 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2009-2017b.xlsx'),
+                          sheet=5, skip=3, n_max=2539, na='.') %>% mutate(Year=2013)
+d14 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2009-2017b.xlsx'),
+                          sheet=6, skip=3, n_max=2532, na='.') %>% mutate(Year=2014)
+d15 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2009-2017b.xlsx'),
+                          sheet=7, skip=3, n_max=2538, na='.') %>% mutate(Year=2015)
+d16 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2009-2017b.xlsx'),
+                          sheet=8, skip=3, n_max=2529, na='.') %>% mutate(Year=2016)
+d17 <- readxl::read_excel(project_extdata_path('Student-rolls-by-School-2009-2017b.xlsx'),
+                          sheet=9, skip=3, n_max=2531, na='.') %>% mutate(Year=2017)
+```
+
+Grab primary demographic fields
+
+```{r}
+data <- do.call("rbind", list(
+                 select(d00, `School ID`, `School Name`, Total, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year),
+                select(d01, `School ID`, `School Name`, `Total Roll`, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year) %>% rename(Total = `Total Roll`),
+                select(d03, `School ID`, `School Name`, `Total Roll`, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year) %>% rename(Total = `Total Roll`),
+                select(d04, `School ID`, `School Name`, `Total Roll`, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year) %>% rename(Total = `Total Roll`),
+                select(d05, `School ID`, `School Name`, `Total Roll`, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year) %>% rename(Total = `Total Roll`),
+                select(d06, `School ID`, `School Name`, `Total Roll`, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year) %>% rename(Total = `Total Roll`),
+                select(d07, `School ID`, `School Name`, `Total Roll`, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year) %>% rename(Total = `Total Roll`),
+                 select(d08, `School ID`, `School Name`, Total, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year),
+                 select(d09, `School ID`, `School Name`, Total, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year),
+                 select(d10, `School ID`, `School Name`, Total, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year),
+                 select(d11, `School ID`, `School Name`, Total, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year),
+                 select(d12, `School ID`, `School Name`, Total, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year),
+                 select(d13, `School ID`, `School Name`, Total, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year),
+                 select(d14, `School ID`, `School Name`, Total, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year),
+                 select(d15, `School ID`, `School Name`, Total, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year),
+                 select(d16, `School ID`, `School Name`, `Total Roll`, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year) %>% rename(Total = `Total Roll`),
+                 select(d17, `School ID`, `School Name`, `Total Roll`, Female, Male, `Māori`, Pasifika, Asian, MELAA, Other, `European/ Pākehā`, Year) %>% rename(Total = `Total Roll`)
+                ))
+```
+
+Gather the data into key-value form
+
+```{r}
+school_demographics <- data %>% gather(Demographic, Count, -`School ID`, -`School Name`, -Year)
+write.csv(school_demographics, file=project_path('data-raw/school_demographics.csv'), row.names=FALSE)
+```
+
+Grab all the details
+
+```{r}
+details <- do.call("rbind",
+                   list(select(d00, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d01, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d02, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d03, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d04, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d05, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d06, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d07, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d08, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d09, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d10, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `Territorial Authority`, Year) %>% rename(`TA with Auckland Local Board` = `Territorial Authority`),
+                        select(d11, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `Territorial Authority`, Year) %>% rename(`TA with Auckland Local Board` = `Territorial Authority`),
+                        select(d12, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d13, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d14, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d15, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `Territorial Authority`, Year) %>% rename(`TA with Auckland Local Board` = `Territorial Authority`),
+                        select(d16, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year),
+                        select(d17, `School ID`, `School Name`, Decile, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`, Year)
+                        )) 
+
+```
+
+Store the details that are not decile
+
+```{r}
+
+school_details <- details %>%
+group_by(`School ID`, `School Name`, Type, Authority, Gender, `Regional Council`, `TA with Auckland Local Board`) %>%
+summarise(From = min(Year), To = max(Year)) %>% as.data.frame() %>% add_count(`School Name`) %>%
+rename(`Number of changes` = n)
+write.csv(school_details, file=project_path('data-raw/school_details.csv'), row.names=FALSE)
+```
+
+Store the deciles
+
+```{r}
+school_deciles <- details %>%
+group_by(`School ID`, `School Name`, Decile) %>%
+summarise(From = min(Year), To = max(Year)) %>% as.data.frame() %>% add_count(`School Name`) %>%
+rename(`Number of deciles` = n)
+write.csv(school_deciles, file=project_path('data-raw/school_deciles.csv'), row.names=FALSE)
+```
+
+
+
+

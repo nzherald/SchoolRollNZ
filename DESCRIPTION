@@ -1,0 +1,21 @@
+Package: SchoolRollNZ
+Title: Data Package For New Zealand School Rolls
+Version: 1.0
+Authors@R: 
+    person(given = "Chris",
+           family = "Knox",
+           role = c("aut", "cre"),
+           email = "chris.knox@nzherald.co.nz")
+Description: Data package that provides school details, school deciles, and school roll data
+based on the School Roll data released by the New Zealand Ministry of Education.
+License: CC BY 4
+Encoding: UTF-8
+LazyData: true
+DataVersion: 0.1.1
+Roxygen: list(markdown = TRUE)
+Date: 2018-09-20
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 6.1.0
