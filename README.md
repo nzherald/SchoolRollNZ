@@ -23,4 +23,5 @@ To use this package install devtools
 
 - `install.packages('devtools')`
 - `devtools::install_github('nzherald/SchoolRollNZ')`
+- `library(SchoolRollNZ)`
 
