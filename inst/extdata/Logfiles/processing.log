@@ -34,3 +34,17 @@ TRACE [2018-09-20 16:05:29] Done
 TRACE [2018-09-20 16:05:29] DataPackageR succeeded
 TRACE [2018-09-20 16:05:29] Building documentation
 TRACE [2018-09-20 16:05:30] Building package
+TRACE [2018-09-20 16:19:58] Logging to /Users/chris.knox/nzme/SchoolRollNZ/inst/extdata/Logfiles/processing.log
+TRACE [2018-09-20 16:19:58] Processing data
+TRACE [2018-09-20 16:19:58] Reading yaml configuration
+TRACE [2018-09-20 16:19:58] Found /Users/chris.knox/nzme/SchoolRollNZ/data-raw/tidy_rolls.Rmd
+TRACE [2018-09-20 16:19:58] Processing 1 of 1: /Users/chris.knox/nzme/SchoolRollNZ/data-raw/tidy_rolls.Rmd
+
+TRACE [2018-09-20 16:20:02] 3 data set(s) created by tidy_rolls.Rmd
+TRACE [2018-09-20 16:20:02] Processed data sets match existing data sets at version 0.1.1
+TRACE [2018-09-20 16:20:02] Saving to data
+TRACE [2018-09-20 16:20:03] Copied documentation to /Users/chris.knox/nzme/SchoolRollNZ/R/SchoolRollNZ.R
+TRACE [2018-09-20 16:20:03] Done
+TRACE [2018-09-20 16:20:03] DataPackageR succeeded
+TRACE [2018-09-20 16:20:03] Building documentation
+TRACE [2018-09-20 16:20:04] Building package

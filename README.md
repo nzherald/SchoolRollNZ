@@ -17,3 +17,10 @@ These can be downloaded directly as CSVs if you don't want to use the R package
 The original data was released under a Creative Commons 4 Attribution license by Ministry of Education 
 on behalf of the Crown.
 
+## Installation
+
+To use this package install devtools
+
+- `install.packages('devtools')`
+- `devtools::install_github('nzherald/SchoolRollNZ')`
+
