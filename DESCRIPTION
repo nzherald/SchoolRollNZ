@@ -6,7 +6,7 @@ Authors@R:
            family = "Knox",
            role = c("aut", "cre"),
            email = "chris.knox@nzherald.co.nz")
-Description: Data package that provides school details, school deciles, and school roll data\
+Description: Data package that provides school details, school deciles, and school roll data
     based on the School Roll data released by the New Zealand Ministry of Education.
 License: CC BY 4
 Encoding: UTF-8
